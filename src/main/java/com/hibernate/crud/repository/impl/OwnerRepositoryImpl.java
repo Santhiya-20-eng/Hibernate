@@ -7,9 +7,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.type.format.jakartajson.JakartaJsonIntegration;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
+@Repository
 public class OwnerRepositoryImpl implements OwnerRepository {
     private SessionFactory sessionFactory = DataConfig.getSessionFactory();
     @Override
@@ -22,7 +25,7 @@ public class OwnerRepositoryImpl implements OwnerRepository {
     }
 
     @Override
-    public Owner findOwner(int ownerId) {
+    public Owner findOwner(UUID ownerId) {
         try(Session session = sessionFactory.openSession()){
             return session.find(Owner.class,ownerId);
         }
@@ -30,7 +33,7 @@ public class OwnerRepositoryImpl implements OwnerRepository {
     }
 
     @Override
-    public void updatePetDetails(int ownerId, String petName) {
+    public void updatePetDetails(UUID ownerId, String petName) {
         try(Session session=sessionFactory.openSession()){
             Transaction transaction=session.beginTransaction();
             var owner=session.find(Owner.class,ownerId);
@@ -41,7 +44,7 @@ public class OwnerRepositoryImpl implements OwnerRepository {
     }
 
     @Override
-    public void deleteOwner(int ownerId) {
+    public void deleteOwner(UUID ownerId) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
             session.remove(session.find(Owner.class, ownerId));

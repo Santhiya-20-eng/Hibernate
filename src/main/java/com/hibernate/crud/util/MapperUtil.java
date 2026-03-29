@@ -6,7 +6,7 @@ import com.hibernate.crud.entity.Owner;
 public class MapperUtil {
     public static Owner DTOtoEntity(OwnerDTO ownerDTO1) {
         Owner owner = new Owner();
-        owner.setId(ownerDTO1.getId());
+        //owner.setId(ownerDTO1.getId();
         owner.setFirstName(ownerDTO1.getFirstName());
         owner.setLastName(ownerDTO1.getLastName());
         owner.setGender(ownerDTO1.getGender());
@@ -24,7 +24,7 @@ public class MapperUtil {
 
     public static OwnerDTO EntitytoDTO(Owner owner) {
         OwnerDTO ownerDTO = new OwnerDTO();
-        ownerDTO.setId(owner.getId());
+        ownerDTO.setId(owner.getId().toString());
         ownerDTO.setFirstName(owner.getFirstName());
         ownerDTO.setLastName(owner.getLastName());
         ownerDTO.setGender(owner.getGender());

@@ -5,12 +5,17 @@ import com.hibernate.crud.enums.PetType;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name="owner table")
 public class Owner{
+    //@GeneratedValue
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Id
-    private int id;
+    //private int id;
+    private UUID id;
     @Column(name="firstname",nullable=false)
     private String firstName;
     @Column(nullable=false)
@@ -30,12 +35,16 @@ public class Owner{
     private LocalDate petBirthDate;
     private PetType petType;
 
-    public int getId() {
+    /*public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }*/
+
+    public UUID getId() {
+        return id;
     }
 
     public String getFirstName() {

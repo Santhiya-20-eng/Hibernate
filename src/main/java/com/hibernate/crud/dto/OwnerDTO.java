@@ -6,7 +6,8 @@ import com.hibernate.crud.enums.PetType;
 import java.time.LocalDate;
 
 public class OwnerDTO {
-    private int id;
+   //private int id;
+    private String Id;
     private String firstName;
     private String lastName;
     private Gender gender;
@@ -19,12 +20,20 @@ public class OwnerDTO {
     private LocalDate petBirthDate;
     private PetType petType;
 
-    public int getId() {
+    /*public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }*/
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        this.Id = Id;
     }
 
     public String getFirstName() {
@@ -120,7 +129,7 @@ public class OwnerDTO {
     @Override
     public String toString() {
         return "OwnerDTO{" +
-                "id=" + id +
+                "id=" + Id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", gender=" + gender +

@@ -33,8 +33,8 @@ public class InputUtil {
     }
     public static OwnerDTO getOwner(Scanner sc) {
         OwnerDTO ownerDTO = new OwnerDTO();
-        System.out.println("Enter Owner Id");
-        int id = sc.nextInt();
+//        System.out.println("Enter Owner Id");
+//        int id = sc.nextInt();
         sc.nextLine();
         System.out.println("Enter First Name:");
         String firstName = sc.nextLine();
@@ -60,7 +60,7 @@ public class InputUtil {
         System.out.println("Enter petType:" + Arrays.asList(PetType.values()));
         String petType = sc.nextLine().toUpperCase();
         try{
-            ownerDTO.setId(id);
+            //ownerDTO.setId(id);
             ownerDTO.setFirstName(firstName);
             ownerDTO.setLastName(lastName);
             ownerDTO.setGender(Gender.valueOf(gender));
@@ -85,10 +85,10 @@ public class InputUtil {
         return LocalDate.parse(petBirthDate, format);
     }
 
-    public static int getOwnerId(Scanner sc) {
+    public static String getOwnerId(Scanner sc) {
         System.out.println("Enter the id");
-        int ownerId = sc.nextInt();
-        if (ownerId < 1) {
+        String ownerId = sc.nextLine();
+        if (ownerId==null) {
             return ownerId;
         }else{
             return ownerId;
